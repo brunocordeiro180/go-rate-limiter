@@ -1,9 +1,30 @@
 package middleware
 
-import "net/http"
+import (
+	"fmt"
+	"net/http"
 
-func RateLimiterMiddleware(next http.Handler) http.Handler {
+	"github.com/brunocordeiro180/go-rate-limiter/internal/pkg/ratelimiter"
+)
+
+func RateLimiterMiddleware(l *ratelimiter.RateLimiter, next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		key := r.RemoteAddr
+		isToken := false
+
+		token := r.Header.Get("API_KEY")
+		if token != "" {
+			key = token
+			isToken = true
+		}
+		fmt.Println("key: " + key)
+		if l.IsBlocked(r.Context(), key) || !l.Check(r.Context(), key, isToken) {
+
+			fmt.Println("you have reached the maximum number of requests or actions allowed within a certain time frame")
+			http.Error(w, "you have reached the maximum number of requests or actions allowed within a certain time frame", http.StatusTooManyRequests)
+			return
+		}
+
 		next.ServeHTTP(w, r)
 	})
 }
