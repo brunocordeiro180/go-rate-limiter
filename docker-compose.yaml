@@ -8,13 +8,6 @@ services:
       - "6379:6379"
     environment:
       REDIS_PASSWORD: secret
-  redis-insight:
-    image: redis/redisinsight:latest
-    restart: always
-    ports:
-      - "5540:5540"
-    volumes:
-      - redis-insight:/data
 
 volumes:
   redis-insight:
