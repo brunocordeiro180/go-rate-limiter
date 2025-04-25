@@ -17,15 +17,17 @@ Este projeto é uma implementação de um *rate limiter* em Go, desenvolvido com
 ```
 go-rate-limiter/
 ├── cmd/
-│   └── server/          # Inicialização do servidor HTTP
-├── config/              # Carregamento de configurações
+│   └── server/         
+├── config/  
+├── docs/             
 ├── internal/
-│   ├── limiter/         # Lógica principal do rate limiter
-│   ├── middleware/      # Middleware HTTP
-│   └── storage/         # Interface e implementação de persistência
-├── docker-compose.yaml  # Configuração do Redis via Docker
-├── .env                 # Arquivo de variáveis de ambiente
-├── header.lua           # Script Lua para uso com wrk
+│   ├── infra/
+        └── database/
+        └── webserver/
+│   ├── pkg/      
+├── docker-compose.yaml
+├── .env           
+├── header.lua
 ├── go.mod
 └── go.sum
 ```
