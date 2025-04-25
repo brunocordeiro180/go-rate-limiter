@@ -1,0 +1,32 @@
+basePath: /
+host: localhost:8080
+info:
+  contact:
+    email: brunocordeiro180@gmail.com
+    name: Bruno Cordeiro
+    url: https://github.com/brunocordeiro180
+  description: A basic rate-limiting API using Redis and native net/http.
+  termsOfService: http://swagger.io/terms/
+  title: Go Rate Limiter API
+  version: "1.0"
+paths:
+  /:
+    get:
+      description: Simple hello world endpoint with rate limiting applied
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: Hello, World!
+          schema:
+            type: string
+        "429":
+          description: Too Many Requests
+          schema:
+            type: string
+      summary: Hello World Endpoint
+      tags:
+      - hello-world
+schemes:
+- http
+swagger: "2.0"

@@ -2,7 +2,6 @@ package database
 
 import (
 	"context"
-	"fmt"
 	"strconv"
 	"time"
 
@@ -16,8 +15,6 @@ type RedisDB struct {
 }
 
 func NewRedisConnection(addr, password string) *RedisDB {
-
-	fmt.Println("CALLED")
 
 	client := redis.NewClient(&redis.Options{Addr: addr, Password: password})
 

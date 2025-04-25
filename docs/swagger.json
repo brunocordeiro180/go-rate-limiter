@@ -1,0 +1,47 @@
+{
+    "schemes": [
+        "http"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "A basic rate-limiting API using Redis and native net/http.",
+        "title": "Go Rate Limiter API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Bruno Cordeiro",
+            "url": "https://github.com/brunocordeiro180",
+            "email": "brunocordeiro180@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/": {
+            "get": {
+                "description": "Simple hello world endpoint with rate limiting applied",
+                "produces": [
+                    "text/plain"
+                ],
+                "tags": [
+                    "hello-world"
+                ],
+                "summary": "Hello World Endpoint",
+                "responses": {
+                    "200": {
+                        "description": "Hello, World!",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
