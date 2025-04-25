@@ -22,8 +22,8 @@ go-rate-limiter/
 ├── docs/             
 ├── internal/
 │   ├── infra/
-        └── database/
-        └── webserver/
+|       └── database/
+|       └── webserver/
 │   ├── pkg/      
 ├── docker-compose.yaml
 ├── .env           
