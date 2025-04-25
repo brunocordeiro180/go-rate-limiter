@@ -40,7 +40,7 @@ Variáveis disponíveis:
 
 - `RATE_LIMIT_IP`: Número máximo de requisições por segundo por IP (ex: `10`).
 - `RATE_LIMIT_TOKEN`: Número máximo de requisições por segundo por token (ex: `100`).
-- `RATE_DURATION`: Tempo de bloqueio em segundos após exceder o limite (ex: `300` para 5 minutos).
+- `RATE_DURATION`: Tempo de bloqueio em segundos após exceder o limite.
 - `REDIS_ADDR`: Endereço do Redis (ex: `localhost:6379`).
 - `REDIS_PASSWORD`: Senha do Redis, se aplicável.
 
